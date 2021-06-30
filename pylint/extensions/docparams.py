@@ -282,7 +282,9 @@ class DocstringParameterChecker(BaseChecker):
 
     def visit_raise(self, node):
         func_node = node.frame()
-        if not isinstance(func_node, astroid.FunctionDef) or self._skip_func_docstring(func_node):
+        if not isinstance(func_node, astroid.FunctionDef) or self._skip_func_docstring(
+            func_node
+        ):
             return
 
         expected_excs = utils.possible_exc_types(node)
@@ -315,7 +317,9 @@ class DocstringParameterChecker(BaseChecker):
             return
 
         func_node = node.frame()
-        if not isinstance(func_node, astroid.FunctionDef) or self._skip_func_docstring(func_node):
+        if not isinstance(func_node, astroid.FunctionDef) or self._skip_func_docstring(
+            func_node
+        ):
             return
 
         doc = utils.docstringify(func_node.doc, self.config.default_docstring_type)
@@ -335,7 +339,9 @@ class DocstringParameterChecker(BaseChecker):
 
     def visit_yield(self, node):
         func_node = node.frame()
-        if not isinstance(func_node, astroid.FunctionDef) or self._skip_func_docstring(func_node):
+        if not isinstance(func_node, astroid.FunctionDef) or self._skip_func_docstring(
+            func_node
+        ):
             return
 
         doc = utils.docstringify(func_node.doc, self.config.default_docstring_type)
